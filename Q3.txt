@@ -1,10 +1,10 @@
-/******************************************************************************
-
-                            Online Java Compiler.
-                Code, Compile, Run and Debug java program online.
-Write your code in this editor and press "Run" button to execute it.
-
-*******************************************************************************/
+/*Algorithm:1. Initialize an array and input value of k from user
+            2. Call the function maxWindowElelement with args array and k value
+            3. Initialize value of start, end in function
+            4. Run Outer loop from 0 to length-k and inner loop from start to end
+            5. To find max in window,Inside inner loop chk if element of arr[i] is greater than temp then update temp
+            6. Update start value and end value
+*/
 import java.util.*;
 import java.util.Scanner;
 public class Main

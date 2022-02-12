@@ -46,14 +46,14 @@ public class Main
         }
         System.out.println();
         
-        //find median if odd data
+        //find median if odd data : (n+1)/2
         if(n3%2!=0)
         {
             int odd_median = (n3+1)/2;
             System.out.println("Median of the array is:"+arr3[odd_median-1]); //-1 for index starting from 0
         }
         
-        //find median if even data
+        //find median if even data : avg of term (n/2) , (n/2)+1 
         if(n3%2==0)
         {
             int prev_term = (n3/2)-1;  //-1 for index starting from 0
