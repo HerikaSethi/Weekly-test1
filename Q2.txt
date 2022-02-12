@@ -1,0 +1,77 @@
+import java.util.*;
+public class Main
+{
+    static void findMedian(int[] arr1, int[] arr2, int n1, int n2)
+    {
+        int temp;
+        
+        //base case  : for no data in the array
+        if(n1<1 || n2<1)
+        {
+            System.out.println("invalid input");
+        }
+        
+        //Initialize arr3
+        int n3 = n1+n2;
+        int[] arr3 = new int[n3];
+        
+        //concat the two arrays
+        for(int i=0;i<n1;i++)
+        {
+            arr3[i]=arr1[i];
+        }
+        for(int i=0, j=n1; j<n3 && i<n2; i++,j++)
+        {
+            arr3[j]=arr2[i];
+        }
+        
+        //sort the array
+        for(int i=0;i<n3;i++)
+        {
+            for(int j=i+1;j<n3;j++)
+            {
+                if(arr3[i]>arr3[j])
+                {
+                    temp =  arr3[i];
+                    arr3[i] = arr3[j];
+                    arr3[j] = temp;
+                }
+            }
+        }
+        
+        //print the data
+        for(int i=0;i<n3;i++)
+        {
+            System.out.print(arr3[i]+" ");
+        }
+        System.out.println();
+        
+        //find median if odd data
+        if(n3%2!=0)
+        {
+            int odd_median = (n3+1)/2;
+            System.out.println("Median of the array is:"+arr3[odd_median-1]); //-1 for index starting from 0
+        }
+        
+        //find median if even data
+        if(n3%2==0)
+        {
+            int prev_term = (n3/2)-1;  //-1 for index starting from 0
+            int next_term = ((n3/2)+1)-1;  //-1 f index starting from 0
+            int even_median = (arr3[prev_term] + arr3[next_term])/2;
+            System.out.println("Median of the array is:"+even_median);
+        }
+        
+    }
+    
+	public static void main(String[] args) {
+		int arr1[]={12,13,16,17};
+		int arr2[]={11,14,20,22};
+		
+		int len1 = arr1.length;
+		int len2 = arr2.length;
+		
+		
+		findMedian(arr1,arr2,len1,len2);
+	}
+}
